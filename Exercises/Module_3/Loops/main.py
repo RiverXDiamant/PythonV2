@@ -17,7 +17,7 @@ for n in range(3+1):
 for n in range(2, 6):
     print(n)
 
-for n in range(5, 10+1):
+for n in range(5, 10+1): 
     print(n)
 
 # ------------------
