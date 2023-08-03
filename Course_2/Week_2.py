@@ -100,7 +100,7 @@ with open("guests.txt") as guests:
         print(line)
 # Bob
 
-# Polly
+# Polly 
 
 # Sam
 
