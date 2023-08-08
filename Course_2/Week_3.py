@@ -13,3 +13,15 @@ log = "July 31 07:51:48 mycomputer bad_process[12345]: ERROR Performing package 
 regex = r"\[(\d+)\]"
 result = re.search(regex, log)
 print(result[1])
+
+#Basic Matching with grep: grep works by printing out any line that matches the query that we pass it
+
+# Call the search function on the re module; stored the return value of that function in the result variable
+# The r indicates that this is a Rawstring
+
+
+result = re.search(r"aza", "plaza")
+print(result)
+
+result = re.search(r"aza", "bazaar")
+print(result)
