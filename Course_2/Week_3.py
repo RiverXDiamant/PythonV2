@@ -14,14 +14,33 @@ regex = r"\[(\d+)\]"
 result = re.search(regex, log)
 print(result[1])
 
+
 #Basic Matching with grep: grep works by printing out any line that matches the query that we pass it
 
 # Call the search function on the re module; stored the return value of that function in the result variable
 # The r indicates that this is a Rawstring
 
+# The span attribute indicates a range where the sub string can be found
+
 
 result = re.search(r"aza", "plaza")
 print(result)
 
+# output: <re.Match object; span=(2, 5), match='aza'>
+
 result = re.search(r"aza", "bazaar")
 print(result)
+
+# output: <re.Match object; span=(1, 4), match='aza'>
+
+print(re.search(r"p.ng", "penguin"))
+
+#output: <re.Match object; span=(0, 4), match='peng'>
+
+def check_aei (text):
+  result = re.search(r"a.e.i", text)
+  return result != None
+
+print(check_aei("academia")) # True
+print(check_aei("aerial")) # False
+print(check_aei("paramedic")) # True
