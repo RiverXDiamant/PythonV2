@@ -57,11 +57,11 @@ def check_punctuation (text):
 
 # Repetition Qualifiers
 
-print(re.search(r"Py.*n", "Pygmalion"))
-print(re.search(r"Py.*n", "Python programming"))
-print(re.search(r"Py[a-z]*n", "Python Programming"))
+# print(re.search(r"Py.*n", "Pygmalion"))
+# print(re.search(r"Py.*n", "Python programming"))
+# print(re.search(r"Py[a-z]*n", "Python Programming"))
 
-print(re.search(r"o+l+", "goldfish"))
+# print(re.search(r"o+l+", "goldfish"))
 
 import re
 def repeating_letter_a(text):
@@ -72,3 +72,17 @@ def repeating_letter_a(text):
 # print(repeating_letter_a("pineapple")) # False
 # print(repeating_letter_a("Animal Kingdom")) # True
 # print(repeating_letter_a("A is for apple")) # True
+
+#Escaping Characters
+print(re.search(r"\.com", "Gamestop.com"))
+
+# Fill in the code to check if the text passed has at least 2 groups of alphanumeric characters (including letters, numbers, and underscores) separated by one or more whitespace characters.
+
+def check_character_groups(text):
+  result = re.search(r"\w\s", text)
+  return result != None
+
+print(check_character_groups("One")) # False
+print(check_character_groups("123  Ready Set GO")) # True
+print(check_character_groups("username user_01")) # True
+print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
