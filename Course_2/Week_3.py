@@ -12,7 +12,7 @@ import re
 log = "July 31 07:51:48 mycomputer bad_process[12345]: ERROR Performing package upgrade"
 regex = r"\[(\d+)\]"
 result = re.search(regex, log)
-print(result[1])
+# print(result[1])
 
 
 #Basic Matching with grep: grep works by printing out any line that matches the query that we pass it
@@ -24,16 +24,16 @@ print(result[1])
 
 
 result = re.search(r"aza", "plaza")
-print(result)
+# print(result)
 
 # output: <re.Match object; span=(2, 5), match='aza'>
 
 result = re.search(r"aza", "bazaar")
-print(result)
+# print(result)
 
 # output: <re.Match object; span=(1, 4), match='aza'>
 
-print(re.search(r"p.ng", "penguin"))
+# print(re.search(r"p.ng", "penguin"))
 
 #output: <re.Match object; span=(0, 4), match='peng'>
 
@@ -41,16 +41,34 @@ def check_aei (text):
   result = re.search(r"a.e.i", text)
   return result != None
 
-print(check_aei("academia")) # True
-print(check_aei("aerial")) # False
-print(check_aei("paramedic")) # True
+# print(check_aei("academia")) # True
+# print(check_aei("aerial")) # False
+# print(check_aei("paramedic")) # True
 
 def check_punctuation (text):
   result = re.search(r"[,-.-!-;-?]", text)
   return result != None
 
-print(check_punctuation("This is a sentence that ends with a period.")) # True
-print(check_punctuation("This is a sentence fragment without a period")) # False
-print(check_punctuation("Aren't regular expressions awesome?")) # True
-print(check_punctuation("Wow! We're really picking up some steam now!")) # True
-print(check_punctuation("End of the line")) # False
+# print(check_punctuation("This is a sentence that ends with a period.")) # True
+# print(check_punctuation("This is a sentence fragment without a period")) # False
+# print(check_punctuation("Aren't regular expressions awesome?")) # True
+# print(check_punctuation("Wow! We're really picking up some steam now!")) # True
+# print(check_punctuation("End of the line")) # False
+
+# Repetition Qualifiers
+
+print(re.search(r"Py.*n", "Pygmalion"))
+print(re.search(r"Py.*n", "Python programming"))
+print(re.search(r"Py[a-z]*n", "Python Programming"))
+
+print(re.search(r"o+l+", "goldfish"))
+
+import re
+def repeating_letter_a(text):
+  result = re.search(r"[Aa].*a", text)
+  return result != None
+
+# print(repeating_letter_a("banana")) # True
+# print(repeating_letter_a("pineapple")) # False
+# print(repeating_letter_a("Animal Kingdom")) # True
+# print(repeating_letter_a("A is for apple")) # True
