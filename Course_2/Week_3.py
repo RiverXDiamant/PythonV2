@@ -74,7 +74,7 @@ def repeating_letter_a(text):
 # print(repeating_letter_a("A is for apple")) # True
 
 #Escaping Characters
-print(re.search(r"\.com", "Gamestop.com"))
+# print(re.search(r"\.com", "Gamestop.com"))
 
 # Fill in the code to check if the text passed has at least 2 groups of alphanumeric characters (including letters, numbers, and underscores) separated by one or more whitespace characters.
 
@@ -82,15 +82,54 @@ def check_character_groups(text):
   result = re.search(r"\w\s", text)
   return result != None
 
-print(check_character_groups("One")) # False
-print(check_character_groups("123  Ready Set GO")) # True
-print(check_character_groups("username user_01")) # True
-print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
+# print(check_character_groups("One")) # False
+# print(check_character_groups("123  Ready Set GO")) # True
+# print(check_character_groups("username user_01")) # True
+# print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
 
 pattern = r"^[a-zA-Z_][a-zA-Z0-9_]*$"
-print(re.search(pattern, "_this_is_a_valid_variable_name"))
-print(re.search(pattern, "this isn't a valid variable name"))
+# print(re.search(pattern, "_this_is_a_valid_variable_name"))
+# print(re.search(pattern, "this isn't a valid variable name"))
 
 # output: <re.Match object; span=(0, 30), match='_this_is_a_valid_variable_name'>
 
 
+#? ========== Capturing Groups ==========
+
+result = re.search(r"^(\w*), (\w*)$", "Lovelace, Ada")
+print(result)
+print(result.groups())
+
+# Function to rearrange names
+
+def rearrange_name(name):
+  result = re.search(r"^(\w*), (\w*)$", name) 
+  if result is None:
+    return name
+  return "{} {}".format(result[2], result[1])
+
+rearrange_name("Lovelace, Ada")
+rearrange_name("Ritchie, Dennis")
+
+
+
+def rearrange_name(name):
+  result = re.search(r"^([\w \.-]*), ([\w \.-]*)$", name)
+  if result == None:
+    return name
+  return "{} {}".format(result[2], result[1])
+
+name=rearrange_name("Kennedy, John F.")
+print(name)
+
+# ==========
+print(re.search(r"[a-zA-Z]{5}", "a ghost"))
+
+def long_words(text):
+  pattern = "\w{7,}"
+  result = re.findall(pattern, text)
+  return result
+
+print(long_words("I like to drink coffee in the morning.")) # ['morning']
+print(long_words("I also have a taste for hot chocolate in the afternoon.")) # ['chocolate', 'afternoon']
+print(long_words("I never drink tea late at night.")) # []
