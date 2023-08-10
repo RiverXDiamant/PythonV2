@@ -2,7 +2,7 @@
 
 #!/usr/bin/env python3
 
-# A Python script that achieves two tasks. First, it changed the domain name to the new domain name. Second, it stored all the updated domain names in a new file.
+# A  Python script that achieves two tasks. First, it changed the domain name to the new domain name. Second, it stored all the updated domain names in a new file.
 
 import re
 import csv
